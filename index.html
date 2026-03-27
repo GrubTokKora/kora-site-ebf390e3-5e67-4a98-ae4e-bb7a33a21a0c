@@ -39,6 +39,9 @@
     <!-- Built Tailwind (no runtime CDN) — rebuild: npx tailwindcss@3.4.17 -i tw-input.css -o styles.css --minify -->
     <link rel="stylesheet" href="styles.css">
 
+    <!-- Kora Voice Widget CSS -->
+    <link rel="stylesheet" href="assets/kora-voice/voice-widget.css">
+
     <!-- reCAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
@@ -67,6 +70,15 @@
             opacity: 1;
         }
     </style>
+<link rel="stylesheet" href="assets/kora-voice/voice-widget.css" />
+<script>
+window.KORA_CONFIG = window.KORA_CONFIG || {};
+window.KORA_CONFIG.apiBaseUrl = "https://kora-agent.quseappdev.com";
+window.KORA_CONFIG.features = window.KORA_CONFIG.features || {};
+window.KORA_CONFIG.features.voice = window.KORA_CONFIG.features.voice || {};
+window.KORA_CONFIG.features.voice.enabled = true;
+window.KORA_CONFIG.features.voice.provider = "xai";
+</script>
 </head>
 
 <body class="font-sans text-gray-800 bg-cream antialiased">
@@ -660,9 +672,19 @@
         window.KORA_SITE_CONFIG = {
             apiBaseUrl: "https://api.kora.com",
             businessId: "ebf390e3-5e67-4a98-ae4e-bb7a33a21a0c",
-            recaptchaSiteKey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+            recaptchaSiteKey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+            features: {
+                voice: {
+                    enabled: true
+                }
+            }
         };
     </script>
+
+    <!-- Kora Voice Widget -->
+    <script src="assets/kora-voice/voice-client.js"></script>
+    <script src="assets/kora-voice/voice-widget.js"></script>
+    
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         lucide.createIcons();
